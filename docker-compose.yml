@@ -2,7 +2,7 @@ version: '2'
 
 services:
   insync.merit.core.api:
-    image: ${DOCKER_REGISRY}/${API_IMAGE}:${API_TAG}
+    image: ${DOCKER_REGISTRY}/${API_IMAGE}:${API_TAG}
     environment:
       - DOTNET_ENVIRONMENT=${ENVIRONMENT}
     ports:
