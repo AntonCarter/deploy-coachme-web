@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  insync.merit.core.api:
+    image: ${API_IMAGE}:${API_TAG}
+    environment:
+      - DOTNET_ENVIRONMENT=${ENVIRONMENT}
+    ports:
+      - "${API_PORT}:80"
+      - "${API_PORT_SSL}:443"
+    networks:
+      - edge
+      - merit
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.meritapi.rule=Host(`merit-${ENVIRONMENT}.isg-gateway-integration.com`)"
+      - "traefik.http.routers.meritapi.entrypoints=web"      
+      
+  insync.merit.servicebus.processor:
+    image: ${BUS_IMAGE}:${BUS_TAG}
+    networks:
+      - merit
+      
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 1444:1433
+    networks:
+      - merit
+    environment:
+      SA_PASSWORD: "${SA_PASSWORD}"
+      ACCEPT_EULA: "Y"
+      
+networks:
+  merit:
+  edge:
+    external:
+      name: edge
