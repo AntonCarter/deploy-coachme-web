@@ -2,7 +2,7 @@ version: '2'
 
 services:
   insync.merit.core.api:
-    image: ${API_IMAGE}:${API_TAG}
+    image: ${DOCKER_REGISRY}/${API_IMAGE}:${API_TAG}
     environment:
       - DOTNET_ENVIRONMENT=${ENVIRONMENT}
     ports:
@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.meritapi.entrypoints=web"      
       
   insync.merit.servicebus.processor:
-    image: ${BUS_IMAGE}:${BUS_TAG}
+    image: ${DOCKER_REGISRY}/${BUS_IMAGE}:${BUS_TAG}
     networks:
       - merit
       
