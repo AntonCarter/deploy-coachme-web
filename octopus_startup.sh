@@ -14,8 +14,8 @@ while getopts ":n:c:o" opt; do
 	esac
 done
 
-if[[$cmd = "up"]]; then
-	if [[ octopus -eq 1]]; then
+if [[ $cmd = "up" ]]; then
+	if [[ octopus -eq 1 ]]; then
 		echo "Replacing '.env' file with 'octopus.env'"
 		mv ./.env ./.env.old
 		mv ./octopus.env ./.env
