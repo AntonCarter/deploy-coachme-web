@@ -21,9 +21,9 @@ if [[ $cmd = "up" ]]; then
 		mv ./octopus.env ./.env
 	fi
 	echo 'project name $projectname'
-	echo 'compose command ' docker-compose --projectname $project_name up -d 2>&1
-	docker-compose --projec-name $project-name $project_name up -d 2>&1
+	echo 'compose command ' docker-compose --project-name $project-name $project_name up -d 2>&1
+	docker-compose --project-name $project_name up -d 2>&1
 
 else
-	docker-compose --project-name $project-name $project_name $cmd -d 2>&1
+	docker-compose --project-name $project_name $cmd -d 2>&1
 fi
