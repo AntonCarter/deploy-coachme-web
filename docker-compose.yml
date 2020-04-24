@@ -10,8 +10,8 @@ services:
       - merit
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.meritapi.rule=Host(`merit-${ENVIRONMENT}.isg-gateway-integration.com`)"
-      - "traefik.http.routers.meritapi.entrypoints=web"      
+      - "traefik.http.routers.meritapi-${ENVIRONMENT}.rule=Host(`merit-${ENVIRONMENT}.isg-gateway-integration.com`)"
+      - "traefik.http.routers.meritapi-${ENVIRONMENT}.entrypoints=web"      
       
   insync.merit.servicebus.processor:
     image: ${DOCKER_REGISTRY}/${BUS_IMAGE}:${BUS_TAG}
