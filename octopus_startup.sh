@@ -20,8 +20,8 @@ if [[ $cmd = "up" ]]; then
 		mv ./.env ./.env.old
 		mv ./octopus.env ./.env
 	fi
-	docker-compose --project0name $project-name up -d 2>&1
+	docker-compose --projectname $project-name up -d 2>&1
 
 else
-	docker-compose --project0name $project-name $cmd -d 2>&1
+	docker-compose --projectname $project-name $cmd -d 2>&1
 fi
