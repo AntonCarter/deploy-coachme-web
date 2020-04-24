@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.meritapi.entrypoints=web"      
       
   insync.merit.servicebus.processor:
-    image: ${DOCKER_REGISRY}/${BUS_IMAGE}:${BUS_TAG}
+    image: ${DOCKER_REGISTRY}/${BUS_IMAGE}:${BUS_TAG}
     networks:
       - merit
       
