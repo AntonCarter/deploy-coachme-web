@@ -22,8 +22,8 @@ if [[ $cmd = "up" ]]; then
 	fi
 	echo 'project name $projectname'
 	echo 'compose command ' docker-compose --projectname $project_name up -d 2>&1
-	docker-compose --projectname $project-name up -d 2>&1
+	docker-compose --projec-name $project-name up -d 2>&1
 
 else
-	docker-compose --projectname $project-name $cmd -d 2>&1
+	docker-compose --project-name $project-name $cmd -d 2>&1
 fi
