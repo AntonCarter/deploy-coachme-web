@@ -10,13 +10,13 @@ services:
     labels:
       - "traefik.http.services.web.loadbalancer.server.port=80"
       - "traefik.enable=true"
-      - "traefik.http.middlewares.coachme-web-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.coachme-web-http.entrypoints=web"
-      - "traefik.http.routers.coachme-web-http.middlewares=coachme-web-https-redirect@docker"
-      - "traefik.http.routers.coachme-web-http.rule=Host(`#{HostUrl}`)"
-      - "traefik.http.routers.coachme-web-https.entrypoints=websecure"
-      - "traefik.http.routers.coachme-web-https.rule=Host(`#{HostUrl}`)"
-      - "traefik.http.routers.coachme-web-https.tls.certresolver=myresolver" 
+      - "traefik.http.middlewares.#{SubDomain}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.#{SubDomain}-http.entrypoints=web"
+      - "traefik.http.routers.#{SubDomain}-http.middlewares=coachme-web-https-redirect@docker"
+      - "traefik.http.routers.#{SubDomain}-http.rule=Host(`#{HostUrl}`)"
+      - "traefik.http.routers.#{SubDomain}-https.entrypoints=websecure"
+      - "traefik.http.routers.#{SubDomain}-https.rule=Host(`#{HostUrl}`)"
+      - "traefik.http.routers.#{SubDomain}-https.tls.certresolver=myresolver" 
       
 networks:
   edge:
