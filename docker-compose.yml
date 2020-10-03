@@ -13,9 +13,9 @@ services:
       - "traefik.http.middlewares.coachme-web-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.coachme-web-http.entrypoints=web"
       - "traefik.http.routers.coachme-web-http.middlewares=coachme-web-https-redirect@docker"
-      - "traefik.http.routers.coachme-web-http.rule=Host(`coachme.roncarter.co.uk`)"
+      - "traefik.http.routers.coachme-web-http.rule=Host(`#{HostUrl}`)"
       - "traefik.http.routers.coachme-web-https.entrypoints=websecure"
-      - "traefik.http.routers.coachme-web-https.rule=Host(`coachme.roncarter.co.uk`)"
+      - "traefik.http.routers.coachme-web-https.rule=Host(`#{HostUrl}`)"
       - "traefik.http.routers.coachme-web-https.tls.certresolver=myresolver" 
       
 networks:
