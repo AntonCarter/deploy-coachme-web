@@ -21,7 +21,14 @@ if [[ $cmd = "up" ]]; then
 		mv ./octopus.env ./.env
 	fi
 	echo 'project name $projectname'
-	echo 'compose command ' docker-compose --project-name $project-name $project_name up -d 2>&1
+	echo '--------------'
+	echo 'deployment variables'
+	echo '--------------'
+	ls
+	cat .env
+	cat octopus.env
+	echo '--------------'
+	
 	docker stack deploy --with-registry-auth --compose-file docker-compose.yml coachme-web 2>&1
 else
 	docker-compose --project-name $project_name $cmd -d 2>&1
