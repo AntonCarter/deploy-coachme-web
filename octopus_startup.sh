@@ -24,9 +24,7 @@ if [[ $cmd = "up" ]]; then
 	echo '--------------'
 	echo 'deployment variables'
 	echo '--------------'
-	ls
-	cat .env
-	cat octopus.env
+	cat docker-compose.yml
 	echo '--------------'
 	
 	docker stack deploy --with-registry-auth --compose-file docker-compose.yml coachme-web 2>&1
