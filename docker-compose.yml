@@ -2,9 +2,9 @@ version: '3'
 
 services:
   coachme-ui:
-    image: ${DOCKER_REGISTRY}/${UI_IMAGE}:${UI_TAG}
+    image: #{DOCKER_REGISTRY}/#{UI_IMAGE}:#{UI_TAG}
     environment:
-      - DOTNET_ENVIRONMENT=${ENVIRONMENT}
+      - DOTNET_ENVIRONMENT=#{ENVIRONMENT}
     networks:
       - edge
     labels:
