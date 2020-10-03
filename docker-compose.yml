@@ -8,11 +8,10 @@ services:
     networks:
       - edge
     labels:
-      - "traefik.http.services.web.loadbalancer.server.port=80"
       - "traefik.enable=true"
       - "traefik.http.middlewares.#{SubDomain}-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.#{SubDomain}-http.entrypoints=web"
-      - "traefik.http.routers.#{SubDomain}-http.middlewares=coachme-web-https-redirect@docker"
+      - "traefik.http.routers.#{SubDomain}-http.middlewares=#{SubDomain}-https-redirect@docker"
       - "traefik.http.routers.#{SubDomain}-http.rule=Host(`#{HostUrl}`)"
       - "traefik.http.routers.#{SubDomain}-https.entrypoints=websecure"
       - "traefik.http.routers.#{SubDomain}-https.rule=Host(`#{HostUrl}`)"
