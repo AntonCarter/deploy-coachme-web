@@ -19,7 +19,6 @@ services:
       - "traefik.http.routers.coachme-web-https.tls.certresolver=myresolver" 
       
 networks:
-  merit:
   edge:
     external:
       name: edge
