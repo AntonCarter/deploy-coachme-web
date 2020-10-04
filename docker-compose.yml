@@ -7,15 +7,16 @@ services:
       - DOTNET_ENVIRONMENT=#{ENVIRONMENT}
     networks:
       - edge
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.middlewares.#{SubDomain}-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.#{SubDomain}-http.entrypoints=web"
-      - "traefik.http.routers.#{SubDomain}-http.middlewares=#{SubDomain}-https-redirect@docker"
-      - "traefik.http.routers.#{SubDomain}-http.rule=Host(`#{HostUrl}`)"
-      - "traefik.http.routers.#{SubDomain}-https.entrypoints=websecure"
-      - "traefik.http.routers.#{SubDomain}-https.rule=Host(`#{HostUrl}`)"
-      - "traefik.http.routers.#{SubDomain}-https.tls.certresolver=myresolver" 
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.middlewares.#{SubDomain}-https-redirect.redirectscheme.scheme=https"
+        - "traefik.http.routers.#{SubDomain}-http.entrypoints=web"
+        - "traefik.http.routers.#{SubDomain}-http.middlewares=#{SubDomain}-https-redirect@docker"
+        - "traefik.http.routers.#{SubDomain}-http.rule=Host(`#{HostUrl}`)"
+        - "traefik.http.routers.#{SubDomain}-https.entrypoints=websecure"
+        - "traefik.http.routers.#{SubDomain}-https.rule=Host(`#{HostUrl}`)"
+        - "traefik.http.routers.#{SubDomain}-https.tls.certresolver=myresolver" 
       
 networks:
   edge:
