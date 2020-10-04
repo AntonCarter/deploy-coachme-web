@@ -13,6 +13,7 @@ services:
             - "node.role==manager"
       labels:
         - "traefik.enable=true"
+        - "traefik.http.services.portainer.loadbalancer.server.port=80"
         - "traefik.http.middlewares.#{SubDomain}-https-redirect.redirectscheme.scheme=https"
         - "traefik.http.routers.#{SubDomain}-http.entrypoints=web"
         - "traefik.http.routers.#{SubDomain}-http.middlewares=#{SubDomain}-https-redirect@docker"
