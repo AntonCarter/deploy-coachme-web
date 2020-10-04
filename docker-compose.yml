@@ -8,6 +8,9 @@ services:
     networks:
       - edge
     deploy:
+      placement:
+          constraints:
+            - "node.role==manager"
       labels:
         - "traefik.enable=true"
         - "traefik.http.middlewares.#{SubDomain}-https-redirect.redirectscheme.scheme=https"
