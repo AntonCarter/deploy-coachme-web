@@ -1,7 +1,7 @@
 version: '3.1'
 
 services:
-  coachme-ui:
+  ui:
     image: #{DOCKER_REGISTRY}/#{Octopus.Action.Package[CoachMeWeb].PackageId}:#{Octopus.Action.Package[CoachMeWeb].PackageVersion}
     environment:
       - DOTNET_ENVIRONMENT=#{ENVIRONMENT}
