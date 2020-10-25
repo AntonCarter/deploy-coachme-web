@@ -5,6 +5,7 @@ services:
     image: #{DOCKER_REGISTRY}/#{Octopus.Action.Package[CoachMeWeb].PackageId}:#{Octopus.Action.Package[CoachMeWeb].PackageVersion}
     environment:
       - DOTNET_ENVIRONMENT=#{ENVIRONMENT}
+      - VUE_APP_API=#{API}
     networks:
       - edge
     deploy:
