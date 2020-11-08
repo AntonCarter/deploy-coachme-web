@@ -11,7 +11,7 @@ services:
     deploy:
       placement:
           constraints:
-            - "node.role==manager"
+            - "node.role==worker"
       labels:
         - "traefik.enable=true"
         - "traefik.http.services.coachme-ui.loadbalancer.server.port=80"
