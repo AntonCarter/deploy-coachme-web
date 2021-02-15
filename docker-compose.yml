@@ -14,7 +14,7 @@ services:
             - "node.role==worker"
       labels:
         - "traefik.enable=true"
-        - "traefik.http.services.coachme-ui.loadbalancer.server.port=80"
+        - "traefik.http.services.coachme-ui-#{ENVIRONMENT | ToLower}.loadbalancer.server.port=80"
         - "traefik.http.middlewares.#{SubDomain}-https-redirect.redirectscheme.scheme=https"
         - "traefik.http.routers.#{SubDomain}-http.entrypoints=web"
         - "traefik.http.routers.#{SubDomain}-http.middlewares=#{SubDomain}-https-redirect@docker"
